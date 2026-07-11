@@ -104,7 +104,7 @@ RV32I Multi-cycle CPU
 ```
 
 <p align="center">
-  <img src="images/apb_system_block_diagram.png" width="850">
+  <img src="images/apb_system_block_diagram.png" width="700">
 </p>
 
 <p align="center">
@@ -148,7 +148,7 @@ Peripheral Base Address 비교
 ```
 
 <p align="center">
-  <img src="images/apb_address_decoder.png" width="850">
+  <img src="images/apb_address_decoder.png" width="700">
 </p>
 
 <p align="center">
