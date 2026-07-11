@@ -253,21 +253,53 @@ FSM을 구성해 제어 신호의 순서와 타이밍을 유지했습니다.
 
 ### Peripheral 선택 충돌 방지
 
-| 구분 | 내용 |
-| --- | --- |
-| 문제 | 여러 Peripheral이 하나의 APB Bus를 공유해 잘못된 장치가 선택될 가능성이 있음 |
-| 원인 | 요청 주소에 따른 Peripheral 구분 로직 필요 |
-| 해결 | Peripheral별 Base Address와 Address Mask를 정의하고 Comparator로 주소 비교 |
-| 결과 | 요청 주소에 해당하는 하나의 `PSEL`만 활성화되도록 구현 |
+<table>
+  <tr>
+    <th width="120">구분</th>
+    <th>내용</th>
+  </tr>
+  <tr>
+    <td align="center"><b>문제</b></td>
+    <td>여러 Peripheral이 하나의 APB Bus를 공유해 잘못된 장치가 선택될 가능성이 있음</td>
+  </tr>
+  <tr>
+    <td align="center"><b>원인</b></td>
+    <td>요청 주소에 따른 Peripheral 구분 로직이 필요함</td>
+  </tr>
+  <tr>
+    <td align="center"><b>해결</b></td>
+    <td>Peripheral별 Base Address와 Address Mask를 정의하고 Comparator로 주소 비교</td>
+  </tr>
+  <tr>
+    <td align="center"><b>결과</b></td>
+    <td>요청 주소에 해당하는 하나의 <code>PSEL</code>만 활성화되도록 구현</td>
+  </tr>
+</table>
 
 ### APB 제어 신호 타이밍
 
-| 구분 | 내용 |
-| --- | --- |
-| 문제 | `PSEL`과 `PENABLE`의 활성화 순서가 어긋나면 APB Protocol 위반 발생 |
-| 원인 | APB의 SETUP과 ACCESS 단계가 명확히 분리되어야 함 |
-| 해결 | APB Master FSM을 통해 단계별 제어 신호를 순차적으로 생성 |
-| 결과 | APB Protocol에 맞는 안정적인 Read/Write Transaction 구현 |
+<table>
+  <tr>
+    <th width="120">구분</th>
+    <th>내용</th>
+  </tr>
+  <tr>
+    <td align="center"><b>문제</b></td>
+    <td><code>PSEL</code>과 <code>PENABLE</code>의 활성화 순서가 어긋나면 APB Protocol 위반 발생</td>
+  </tr>
+  <tr>
+    <td align="center"><b>원인</b></td>
+    <td>APB의 SETUP과 ACCESS 단계가 명확히 분리되어야 함</td>
+  </tr>
+  <tr>
+    <td align="center"><b>해결</b></td>
+    <td>APB Master FSM을 통해 단계별 제어 신호를 순차적으로 생성</td>
+  </tr>
+  <tr>
+    <td align="center"><b>결과</b></td>
+    <td>APB Protocol에 맞는 안정적인 Read/Write Transaction 구현</td>
+  </tr>
+</table>
 
 ---
 
